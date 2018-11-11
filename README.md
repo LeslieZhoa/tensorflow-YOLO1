@@ -28,7 +28,7 @@ tensorflow 1.4.1<br>
 opencv 3.4.1<br>
 不知道windows可不可以，应该没问题
 ## 下载数据
-训练数据下载VOC放置到data目录下，预训练模型放置到data目录下
+训练数据下载[VOC](https://pan.baidu.com/s/10UHNDvhLA3-CwGOvA7TanQ)放置到data目录下，[预训练模型](https://pan.baidu.com/s/1RNzPt0naAT8AT-RTPrK1vw)放置到data目录下
 ## 代码介绍
 data下放置训练数据和预训练模型和将数据生成的tfrecords文件<br>
 graph保存训练过程中的训练集和验证集的graph<br>
@@ -51,7 +51,9 @@ train.py是训练文件
 本测试代码支持摄像头<br>
 ## 建议
 建议下载预训练模型训练，训练次数不宜过长，否则过拟合很严重<br>
-本代码只保存验证集上的最优模型
+本代码只保存验证集上的最优模型<br>
+代码参考[hizhangp](https://github.com/hizhangp/yolo_tensorflow)<br>
+如有错误还请多多指正
 # 结果展示
 ![](https://github.com/LeslieZhoa/-tensorflow-YOLO1-/blob/master/output/2007_000364.jpg)<br>
 ![](https://github.com/LeslieZhoa/-tensorflow-YOLO1-/blob/master/output/4.jpg)<br>
