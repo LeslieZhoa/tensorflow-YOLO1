@@ -3,7 +3,7 @@
 
 # 模型简介
 ## yolo v1
-yolo1是端对端的目标检测模型，参考论文为You Only Look Once:Unified, Real-Time Object Detection(https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)主要思想是将图片分割成cell_size * cell_size的格子，每个格子里只包含一个目标，通过网络来输出每个格子的目标值，其中判断格子中是否有目标即判断目标中心点是否在对应格子中。<br>
+yolo1是端对端的目标检测模型，参考论文为[You Only Look Once:Unified, Real-Time Object Detection](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf)主要思想是将图片分割成cell_size * cell_size的格子，每个格子里只包含一个目标，通过网络来输出每个格子的目标值，其中判断格子中是否有目标即判断目标中心点是否在对应格子中。<br>
 模型大致结构图如下：<br>
 ![](https://github.com/LeslieZhoa/-tensorflow-YOLO1-/blob/master/output/model.png)<br>
 模型经过多层卷积和全连接层，将图片最终输出尺寸为[batch,cell_size * cell_size * (num_classes+ box_per_cell* 5)]。简单介绍一下输出的表示:<br>
@@ -14,7 +14,7 @@ yolo1是端对端的目标检测模型，参考论文为You Only Look Once:Unifi
 真实训练数据也按上述方法来处理，只不过刚开始的shape是[cell_size,cell_size,4]然后将它reshape成[cell_size,cell_size,1,4]再复制成[batch,cell_size,cell_size,box_per_cell,4]<br>
 关于损失函数计算有目标损失，无目标损失，类别损失，目标框损失，占比不同，实际显示图片要加上非极大值抑制，把两个很相近的目标框只保留置信度高的。
 ## yolo v2
-关于yolo v2 网上博客大致内荣介绍很详细，可以参考论文YOLO9000: Better, Faster, Stronger(https://arxiv.org/abs/1612.08242),我主要介绍它的训练数据长什么样，这也是困扰我好久的。yolo v2 加了anchor box为上述每个格子提供多个目标的可能，真实值的目标要与anchor box计算iou值，大于阈值才保留，否则保留iou值最大的目标，这样label的shape就变成了[batch, cell_size, cell_size, N_ANCHORS, num_clsses+5],相关坐标x,y,w,h和yolo1处理方式也些许不同，感兴趣的同学可以去参考论文。<br>
+关于yolo v2 网上博客大致内荣介绍很详细，可以参考论文[YOLO9000: Better, Faster, Stronger](https://arxiv.org/abs/1612.08242),我主要介绍它的训练数据长什么样，这也是困扰我好久的。yolo v2 加了anchor box为上述每个格子提供多个目标的可能，真实值的目标要与anchor box计算iou值，大于阈值才保留，否则保留iou值最大的目标，这样label的shape就变成了[batch, cell_size, cell_size, N_ANCHORS, num_clsses+5],相关坐标x,y,w,h和yolo1处理方式也些许不同，感兴趣的同学可以去参考论文。<br>
 # 代码介绍
 代码只针对于yolo1的训练和测试
 ## 环境说明：
