@@ -10,7 +10,7 @@ yolo1是端对端的目标检测模型，参考论文为[You Only Look Once:Unif
 通过reshape分成[batch,cell_size,cell_size,num_classes]表示每个格子对应的类别;<br><br>
 [batch_,cell_size,cell_size,box_per_cell]表示每个格子中是否存在目标的置信度，之所以选择两个box_per_cell是为了让预测精度更准确，通俗来讲就是三个臭皮匠顶一个诸葛亮;<br><br>
 [batch,cell_size,cell_size,box_per_cell,4]表示每个格子每个选框中的目标框的坐标值，4个值分别为目标图片的中心横纵坐标偏移值x,y，目标图片的长宽w,h，但都经过一定归一化处理。x,y是相对于格子的偏移量经过了除以整个图片大小的归一化。<br><br>
-举例说明:<br>
+举例说明:<br><br>
 就是原图目标的中心坐标是x1,y1,原图宽高分别为w1,h1假设目标中心坐落在下标为[0,1]的格子里，即int(x1/image_size* cell_size),int(y1/image_size* cell_size)=0,1,此时对应格子的目标置信度应该都为1,x和y应该是相对于[0,1]这个格子的偏移量，具体算法是：x=x1/image_size* cell_size-0,y=y1/image_size* cell_size-1。<br><br>
 w,h也进行归一化但还要开方，具体算法为：w=square(w1/image_size),h=square(h1/image_size),归一化可以把数值指定在一定范围有利于训练，把w,h开方，是因为w，h的值不同于x,y是格子的偏移量限定于一定区间，w,h是针对整个图片而言，变化没那么平缓，所以进行开方。<br><br>
 真实训练数据也按上述方法来处理，只不过刚开始的shape是[cell_size,cell_size,4]然后将它reshape成[cell_size,cell_size,1,4]再复制成[batch,cell_size,cell_size,box_per_cell,4]<br><br>
