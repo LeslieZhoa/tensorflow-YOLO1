@@ -41,7 +41,7 @@ test.py是测试文件<br>
 tfrecord.py是将数据处理成tfrecords格式<br>
 train.py是训练文件
 ## 运行
-首先可以手动修改config配置问件<br>
+首先可以手动修改config配置文件<br>
 若要训练的话:<br>
 运行python tfrecord.py 生成数据<br>
 运行python train.py 训练数据<br><br>
