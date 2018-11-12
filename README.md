@@ -1,4 +1,4 @@
-# -tensorflow-YOLO1-
+# tensorflow-YOLO1
 采用tensorflow框架编写，中文注释完全，含测试和训练<br><br>
 
 # 模型简介
@@ -28,7 +28,7 @@ tensorflow 1.4.1<br>
 opencv 3.4.1<br>
 不知道windows可不可以，应该没问题
 ## 下载数据
-训练数据下载[VOC](https://pan.baidu.com/s/10UHNDvhLA3-CwGOvA7TanQ)放置到data目录下，[预训练模型](https://pan.baidu.com/s/1RNzPt0naAT8AT-RTPrK1vw)放置到data目录下
+训练数据下载[VOC](https://pan.baidu.com/s/10UHNDvhLA3-CwGOvA7TanQ)解压放置到data目录下，[预训练模型](https://pan.baidu.com/s/1RNzPt0naAT8AT-RTPrK1vw)放置到data目录下
 ## 代码介绍
 data下放置训练数据和预训练模型和将数据生成的tfrecords文件<br>
 graph保存训练过程中的训练集和验证集的graph<br>
