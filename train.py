@@ -107,8 +107,10 @@ for i in range(Config.epoch):
             total_loss=0
             total_val_loss=0
             
-sess.close()
 coord.request_stop()
+coord.join(threads)            
+sess.close()
+
 
 
 # In[ ]:
