@@ -47,7 +47,7 @@ train.py是训练文件
 运行python train.py 训练数据<br><br>
 若要测试:<br>
 把自己喜欢图片放到picture内，本代码图片来源于百度图片<br>
-运行test.py<br>
+查看[代码](https://github.com/LeslieZhoa/tensorflow-YOLO1/blob/master/utils/config.py#L60),确定你进行测试要使用的model，运行test.py<br>
 本测试代码支持摄像头<br>
 ## 建议
 建议下载预训练模型训练，训练次数不宜过长，否则过拟合很严重<br>
